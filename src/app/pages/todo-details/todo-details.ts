@@ -38,7 +38,7 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class TodoDetailsComponent implements OnInit {
-  todo: any = undefined; // undefined initially to show "Loading..."
+  todo: any = undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -46,16 +46,16 @@ export class TodoDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Subscribe to route param changes to handle immediate navigation
+
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
-        this.todo = undefined; // reset to show loading each time
+        this.todo = undefined; 
 
-        // fetch todo from API
+    
         this.http.get(`https://jsonplaceholder.typicode.com/todos/${id}`).subscribe({
           next: (data) => {
-            this.todo = data; // ✅ immediately replace loading with fetched data
+            this.todo = data; 
           },
           error: (err) => {
             console.error('Error fetching todo:', err);
