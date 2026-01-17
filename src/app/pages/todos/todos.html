@@ -1,0 +1,19 @@
+<h2>Todos List</h2>
+<ul>
+  <li
+    *ngFor="let todo of todos"
+    (click)="open(todo.id)"
+    style="cursor: pointer; padding: 8px; border-bottom: 1px solid #ddd"
+  >
+    <p><strong>ID:</strong> {{ todo.id }}</p>
+    <p><strong>Title:</strong> {{ todo.title }}</p>
+    <p><strong>User ID:</strong> {{ todo.userId }}</p>
+    <p>
+      <strong>Status:</strong>
+      <span [style.color]="todo.completed ? 'green' : 'red'">{{
+        todo.completed ? 'Completed' : 'Pending'
+      }}</span>
+    </p>
+  </li>
+</ul>
+<p *ngIf="todos.length === 0">Loading todos...</p>

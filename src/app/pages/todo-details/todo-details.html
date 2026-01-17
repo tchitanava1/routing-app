@@ -1,0 +1,15 @@
+<h2>Todo Details</h2>
+
+<p *ngIf="!todo" style="color: gray">Loading todo details...</p>
+
+<div *ngIf="todo" class="todo-card">
+  <p><strong>ID:</strong> {{ todo.id }}</p>
+  <p><strong>Title:</strong> {{ todo.title }}</p>
+  <p><strong>User ID:</strong> {{ todo.userId }}</p>
+  <p>
+    <strong>Status:</strong>
+    <span [style.color]="todo.completed ? 'green' : 'red'">
+      {{ todo.completed ? 'Completed' : 'Pending' }}
+    </span>
+  </p>
+</div>
